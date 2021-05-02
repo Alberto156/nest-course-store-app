@@ -9,29 +9,4 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-
-  @Get("saludo")
-  saludo(): string {
-    return "Saludo"
-  }
-
-  @Get("products")
-  getProducts(
-    @Query('limit') limit = 100,
-    @Query('offset') offset = 0,
-    @Query('brand') brand : string,
-  )
-  : string {
-    return `product limit =>  ${limit} offset => ${offset} brand=>${brand}`
-  }
-
-  @Get("products/:productId")
-  getProduct(@Param("productId") productId : string): string {
-    return `product ${productId}`
-  }
-  @Get('categories/:id/products/:productId')
-  getCategory(@Param('productId') productId: string, @Param('id') id: string) {
-    return `product ${productId} and ${id}`;
-  }
-
 }
